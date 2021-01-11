@@ -1,0 +1,16 @@
+[
+{
+  "modid": "kab",
+  "name": "KabbalahMod",
+  "description": "Hypixel The Bridge Utility Mod",
+  "version": "0.0.1",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["quirple"],
+  "credits": "quirple vindou jediexe",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": ["JDA"]
+}
+]

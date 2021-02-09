@@ -17,6 +17,10 @@ You will need forge 1.8.9 to run this mod.
 
 This is a forge mod, a tab for releases will be added eventually. To install this mod, have forge installed and drag the jar file into the mods folder.
 
+## Previews
+
+![preview](https://i.gyazo.com/69be74510e3a6a8f388f8b5a0a1567a1.png)
+
 ## Authors
 
 * **Elliott Leow** - Main developer of Kabbalah

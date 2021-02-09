@@ -21,8 +21,6 @@ public class HUD extends Module {
 	public void onEnable() {
 		super.onEnable();
 		enabled = true;
-		//Minecraft.getMinecraft().displayGuiScreen(ExampleMod.clickGui);
-		//this.setToggled(false);
 	}
 	
 	@Override

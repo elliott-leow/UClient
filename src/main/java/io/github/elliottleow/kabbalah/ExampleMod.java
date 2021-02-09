@@ -4,6 +4,7 @@ package io.github.elliottleow.kabbalah;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -15,6 +16,10 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
+
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.security.auth.login.LoginException;
 
@@ -83,6 +88,19 @@ public class ExampleMod
 		
     }
     
+    boolean antiGhostCooldown = false;
+    
+    public void onesec() {
+    	TimerTask task = new TimerTask() {
+            public void run() {
+                antiGhostCooldown = false;
+                return;
+            }
+        };
+        Timer timer = new Timer("Timer");
+        timer.schedule(task, 1000);
+    }
+    
     @SubscribeEvent
     public void key(KeyInputEvent e) {
     	if (Minecraft.getMinecraft().theWorld == null || Minecraft.getMinecraft().thePlayer == null) return;
@@ -94,6 +112,17 @@ public class ExampleMod
     				if(keyCode <= 0) return;
     				for (Module m : moduleManager.modules) {
     					if(m.getKey() == keyCode && keyCode > 0) {
+    						System.out.println(m.getName());
+    						if (m.getName().equals("AntiGhost") && m.isToggled() == false && antiGhostCooldown == false) {
+    							antiGhostCooldown = true;
+    							m.toggle();
+    							onesec();
+    							return;
+    						}
+    						if (m.getName().equals("AntiGhost") && m.isToggled() == false && antiGhostCooldown == true) {
+    							Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("To prevent server from kicking, this mod is on 1 second cooldown."));
+    							return;
+    						}
     						m.toggle();
     					}
     				}

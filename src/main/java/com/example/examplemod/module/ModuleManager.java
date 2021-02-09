@@ -7,7 +7,7 @@ import com.example.examplemod.module.modules.client.ClickGUI;
 import com.example.examplemod.module.modules.client.HUD;
 import com.example.examplemod.module.modules.defense.Chams;
 import com.example.examplemod.module.modules.defense.HippoAssist;
-
+import com.example.examplemod.module.modules.offense.AntiGhost;
 import com.example.examplemod.module.modules.offense.AutoLagback;
 import com.example.examplemod.module.modules.offense.LowBlockWarning;
 import com.example.examplemod.module.modules.offense.PrebowAim;
@@ -35,13 +35,13 @@ public class ModuleManager {
 		this.modules.add(new StatChecker());
 		this.modules.add(new AutoDodge());
 		
-		//this.modules.add(new Info());
+		this.modules.add(new Info());
 		this.modules.add(new Chams());
 		this.modules.add(new LowBlockWarning());
 		this.modules.add(new HUD());
 		//this.modules.add(new WaifuESP());
 		
-		
+		this.modules.add(new AntiGhost());
 		//this.modules.add(new Sprint());
 		
 		//this.modules.add(new HippoAssist());

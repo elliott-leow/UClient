@@ -24,24 +24,8 @@ public class Chams extends Module {
 		this.setKey(Keyboard.KEY_Z);
 	}
 	
+	    
 	
-	
-//	public Property players;
-//    public Property hostileMobs;
-//    public Property friendlyMobs;
-    
-//    public boolean shouldDraw(EntityLivingBase entity) {
-//        return !entity.equals(Minecraft.getMinecraft().thePlayer)
-//            && !entity.isDead
-//            && ((mobs_hostile.get() && EntityUtils.isHostileMob(entity))
-//                || // check this first
-//                (players.get() && EntityUtils.isPlayer(entity))
-//                || (mobs_friendly.get() && EntityUtils.isFriendlyMob(entity)));
-//      }
-//    
-	public boolean shouldDraw(EntityLivingBase entity) {
-	    return EntityUtils.isPlayer(entity);
-	  }
 	
 	@SubscribeEvent
 	  public void onPreRenderPlayer(RenderPlayerEvent.Pre event) {

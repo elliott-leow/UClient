@@ -1,4 +1,5 @@
 
+
 // For those who want the bleeding edge
 buildscript {
     repositories {
@@ -23,9 +24,9 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.0"
+version = "0.01"
 group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+archivesBaseName = "Kabbalah"
 
 configurations {
     shade
@@ -76,6 +77,9 @@ jar {
             exclude 'META-INF', 'META-INF/**'
         }
     }
+}
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
 }
 
 processResources

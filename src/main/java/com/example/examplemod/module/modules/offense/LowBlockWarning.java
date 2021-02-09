@@ -1,6 +1,7 @@
 package com.example.examplemod.module.modules.offense;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
 
 import com.example.examplemod.module.Category;
 import com.example.examplemod.module.Module;
@@ -24,7 +25,7 @@ import scala.reflect.internal.Trees.This;
 
 public class LowBlockWarning extends Module {
 	
-	private transient int BOX = 0;
+	
 	public LowBlockWarning() {
 		super("Low Block Warning", "Tells you when you are low on blocks", Category.OFFENSE);
 		this.setKey(Keyboard.KEY_L);
@@ -52,27 +53,27 @@ public class LowBlockWarning extends Module {
 	
 	@SubscribeEvent
 	public void renderOverlay(RenderGameOverlayEvent.Text event) {
-		//if (this.isToggled() == false) return;
 		
-		//if (toggled) {
+	
+	if(event.type == RenderGameOverlayEvent.ElementType.TEXT && Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() != null && Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getItem() instanceof ItemBlock && Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().stackSize < (int)ExampleMod.settingsManager.getSettingByName(this, "Min Blocks").getValDouble()) {
+		
 		ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
 		FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
-	
-		//System.out.println("----------------------------");
-		//System.out.println(this.isToggled());
-		//System.out.println(event.type == RenderGameOverlayEvent.ElementType.TEXT);
-		//System.out.println(Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() != null);
-		//System.out.println(Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getItem() instanceof ItemBlock);
-				//System.out.println(Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().stackSize < (int)ExampleMod.settingsManager.getSettingByName(this, "Min Blocks").getValDouble());
-				//System.out.println("----------------------------");
-	if(event.type == RenderGameOverlayEvent.ElementType.TEXT && Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() != null && Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getItem() instanceof ItemBlock && Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().stackSize < (int)ExampleMod.settingsManager.getSettingByName(this, "Min Blocks").getValDouble()) {
-		//System.out.println(this.isToggled() + " aaaaaaaaa");
-		if (ExampleMod.settingsManager.getSettingByName(this, "Only Clay").getValBoolean() && Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getItem() == Item.getItemFromBlock(Blocks.stained_hardened_clay)) 
-		fr.drawStringWithShadow("You are almost out of blocks", (int) (sr.getScaledWidth()*(ExampleMod.settingsManager.getSettingByName(this, "Width").getValDouble()/100) - 70), (int) (sr.getScaledHeight()* (ExampleMod.settingsManager.getSettingByName(this, "Height").getValDouble()/100)), 0xffC42300);
-		if (ExampleMod.settingsManager.getSettingByName(this, "Only Clay").getValBoolean() == false) {
+		if (ExampleMod.settingsManager.getSettingByName(this, "Only Clay").getValBoolean() && Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getItem() == Item.getItemFromBlock(Blocks.stained_hardened_clay)) {
+			GL11.glPushMatrix();
 			fr.drawStringWithShadow("You are almost out of blocks", (int) (sr.getScaledWidth()*(ExampleMod.settingsManager.getSettingByName(this, "Width").getValDouble()/100) - 70), (int) (sr.getScaledHeight()* (ExampleMod.settingsManager.getSettingByName(this, "Height").getValDouble()/100)), 0xffC42300);
+			GL11.glPopMatrix();
 		}
+		if (ExampleMod.settingsManager.getSettingByName(this, "Only Clay").getValBoolean() == false) {
+			GL11.glPushMatrix();
+			fr.drawStringWithShadow("You are almost out of blocks", (int) (sr.getScaledWidth()*(ExampleMod.settingsManager.getSettingByName(this, "Width").getValDouble()/100) - 70), (int) (sr.getScaledHeight()* (ExampleMod.settingsManager.getSettingByName(this, "Height").getValDouble()/100)), 0xffC42300);
+			//fr.drawStringWithShadow("", 0, 0, 0x00000000);
+			//fr.drawStringWithShadow("", 0, 0, 0xffffffff);
+			GL11.glPopMatrix();
 	}
+	
+		
 		}
+}
 }
 

@@ -127,8 +127,6 @@ public class AutoDodge extends Module {
 						
 						} else if ((json.get("player").isJsonNull() && !json1.get("player").isJsonNull()) || !(json.get("player").isJsonNull() && json1.get("player").isJsonNull())) {
 							
-							//JsonObject realPlayer = json.get("player").isJsonNull() ? json1 : json;
-							//Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Only " + realPlayer.get("player").isJsonNull() + " is a real person (check to see if nick)"));
 							Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Dodging due to unusual circumstances, if this keeps happening let a developer know."));
 						doDodge();
 						return;

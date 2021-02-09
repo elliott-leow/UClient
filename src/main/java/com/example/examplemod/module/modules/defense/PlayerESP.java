@@ -12,7 +12,7 @@ public class PlayerESP extends Module {
 	
 	private transient int BOX = 0;
 	public PlayerESP() {
-		super("PlayerESP", "Shows the trajectory of arrows.", Category.OFFENSE);
+		super("PlayerESP", "See outlines of players.", Category.OFFENSE);
 		this.setKey(Keyboard.KEY_L);
 	}
 	

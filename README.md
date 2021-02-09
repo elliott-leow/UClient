@@ -19,7 +19,7 @@ This is a forge mod, a tab for releases will be added eventually. To install thi
 
 ## Previews
 
-![preview](https://i.gyazo.com/69be74510e3a6a8f388f8b5a0a1567a1.png)
+![preview](https://i.imgur.com/0YNfQw0.png)
 
 ## Authors
 

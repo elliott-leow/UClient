@@ -7,7 +7,7 @@ However, if you do not have good intentions, you will not be verified and cannot
 
 ## Getting Started
 
-Currently, you can only build this yourself. However, a releases tab will be added in the future.
+Currently, you can only build this yourself, or join the discord server and get verified to see releases. However, a releases tab will be added in the future.
 
 ### Prerequisites
 

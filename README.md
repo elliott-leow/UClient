@@ -1,5 +1,7 @@
 # Kabbalah Client
 
+##this is no longer being developed until there is further interest.
+
 A utility mod aimed at aiding players in Hypixel's "The Bridge" minigame. This mod is **bannable** on hypixel, but I do not care as this mod will not get you banned unless you lack brain cells. The developer of this client is not responsible if you get banned from servers because of this mod. This mod includes features such as Auto Dodge and Double Clicker. 
 
 Join the development discord for releases https://discord.gg/C8GMw4a94J
@@ -23,7 +25,7 @@ This is a forge mod, a tab for releases will be added eventually. To install thi
 
 ## Authors
 
-* **Elliott Leow** - Main developer of Kabbalah
+* **quirple** - Main developer of Kabbalah
 
 ## Acknowledgments
 

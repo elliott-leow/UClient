@@ -1,6 +1,6 @@
 # Kabbalah Client
 
-##this is no longer being developed until there is further interest.
+## this is no longer being developed until there is further interest.
 
 A utility mod aimed at aiding players in Hypixel's "The Bridge" minigame. This mod is **bannable** on hypixel, but I do not care as this mod will not get you banned unless you lack brain cells. The developer of this client is not responsible if you get banned from servers because of this mod. This mod includes features such as Auto Dodge and Double Clicker. 
 

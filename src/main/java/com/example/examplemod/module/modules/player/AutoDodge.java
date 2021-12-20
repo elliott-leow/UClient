@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
-import java.lang.Timer;
-import java.lang.TimerTask;
 
 import org.lwjgl.input.Keyboard;
 
@@ -162,7 +160,6 @@ public class AutoDodge extends Module {
 		}
 		if (message.contains("has joined") && message.contains("(2/2)")) {
 			cancelDodge = false;
-			apiTimeout();
 			Thread thread = new Thread(){
 				
 				 public void run(){
@@ -296,22 +293,6 @@ public class AutoDodge extends Module {
 		}
 		return dodge;
 		
-	}
-	TimerTask disconnect = new TimerTask() {
-		public void run() {
-				System.out.println("Disconnecting");
-			}
-	}
-					 Timer timer = new Timer("Timer");
-					 timer.schedule(disconnect, 4000);
-	public void apiTimeout() {
-		Thread thread = new Thread(){
-				
-				 public void run(){
-					 
-				 }
-		}
-		thread.start();
 	}
 	public void doDodge() {
 		if (cancelDodge == true) {

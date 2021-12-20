@@ -25,8 +25,4 @@ This is a forge mod, a tab for releases will be added eventually. To install thi
 
 ## Authors
 
-* **quirple** - Main developer of Kabbalah
-
-## Acknowledgments
-
-* Zionists best bridge players
+* **quirple** - Developer of Kabbalah

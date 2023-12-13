@@ -1,0 +1,21 @@
+- make autododge work
+- make stat checker work
+- proxy for kabbalahview
+- render util for nametag icons
+- hp display for nametags
+- working trajectories
+- working cape
+- test fastplace
+- make viewmodel work with items
+- implement hippoassist
+- implement blink
+- implement reach
+- implement antikb
+- implement autolagback
+- implement race logic/pathfinding
+- implement search modules option
+- investigate proxy and packet management
+- show fps and cps under hud
+- fix blockbreakesp and tunnelesp
+- add non-npc check to aim assist, esp, chams, tracers
+- rework ui (colors, images, layout)

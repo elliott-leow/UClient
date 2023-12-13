@@ -1,7 +1,7 @@
 package me.elliottleow.kabbalah.module;
 
 public enum Category {
-	DEFENSE("Defense"), OFFENSE("Offense"), PLAYER("Player"), CLIENT("Client");
+	HUD("HUD"), QoL("QoL"), Visual("Visual"), Combat("Combat");
 	
 	public String name; 
 	public int moduleIndex;

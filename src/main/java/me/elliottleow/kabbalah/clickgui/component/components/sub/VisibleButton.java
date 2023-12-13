@@ -1,15 +1,8 @@
 package me.elliottleow.kabbalah.clickgui.component.components.sub;
 
-import org.lwjgl.opengl.GL11;
-
-import me.elliottleow.kabbalah.clickgui.component.Component;
-import me.elliottleow.kabbalah.clickgui.component.components.Button;
-import me.elliottleow.kabbalah.module.Module;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
-
-public class VisibleButton extends Component {
-	private boolean hovered;
+public class VisibleButton {
+//public class VisibleButton extends Component {
+	/*private boolean hovered;
 	private Button parent;
 	private int offset;
 	private int x;
@@ -58,5 +51,5 @@ public class VisibleButton extends Component {
 			return true;
 		}
 		return false;
-	}
+	}*/
 }

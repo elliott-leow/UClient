@@ -25,7 +25,42 @@ import net.minecraft.util.Vec3;
 //import net.minecraftforge.client.event.RenderWorldLastEvent;
 
 public class RenderUtils {
-	public static void entityESPBox(Entity entity,  double r, double g, double b, double t) 
+	
+	public static void drawBlocksLine(BlockPos block1, BlockPos block2) {
+		double X = block1.getX();
+        double Y = block1.getY();
+        double Z = block1.getZ();
+        double mX = block2.getX();
+        double mY = block2.getY();
+        double mZ = block2.getZ();
+        double size = 0.45;
+        //double ytSize = 0.001;
+		
+		GL11.glBlendFunc(770, 771);
+		GL11.glEnable(GL11.GL_BLEND); //+
+		GL11.glLineWidth((float) 5);
+		//GL11.glDisable(2929 /*GL_DEPTH_TEST*/);
+		GL11.glDisable(GL11.GL_TEXTURE_2D); //+
+		GL11.glDisable(GL11.GL_DEPTH_TEST); //+
+		GL11.glDepthMask(false);
+        //GL11.glBegin(GL11.GL_LINES);
+        GL11.glColor4d(1,0,0,1);
+        GL11.glBegin(GL11.GL_LINES);
+        
+        GL11.glVertex3d(X, Y, Z);
+        GL11.glVertex3d(mX, mY, mZ);
+                
+
+        GL11.glEnd();
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glEnable(GL11.GL_DEPTH_TEST);
+	    GL11.glDepthMask(true);
+	    //GL11.glEnable(2929 /*GL_DEPTH_TEST*/); 
+	    GL11.glDisable(GL11.GL_BLEND);
+	    GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+	}
+	
+	public static void entityESPBox(Entity entity,  double r, double g, double b, double a, double t) 
 	{
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_BLEND);
@@ -43,7 +78,7 @@ public class RenderUtils {
 						.getDistanceToEntity(entity) / 40,
 					Minecraft.getMinecraft().thePlayer.getDistanceToEntity(entity) / 40,
 					0, 0.5F);
-		else GL11.glColor4d(r, g, b, 1F);
+		else GL11.glColor4d(r, g, b, a);
 		Minecraft.getMinecraft().getRenderManager();
 		RenderGlobal.drawSelectionBoundingBox(
 			new AxisAlignedBB(
@@ -85,7 +120,7 @@ public class RenderUtils {
 		GL11.glPopMatrix();
 	}
 	
-	public static void itemESPBox(Entity entity,  double r, double g, double b, double t) 
+	public static void itemESPBox(Entity entity,  double r, double g, double b, double a, double t) 
 	{
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_BLEND);
@@ -103,7 +138,7 @@ public class RenderUtils {
 						.getDistanceToEntity(entity) / 40,
 					Minecraft.getMinecraft().thePlayer.getDistanceToEntity(entity) / 40,
 					0, 0.5F);
-		else GL11.glColor4d(r, g, b, 1F);
+		else GL11.glColor4d(r, g, b, a);
 		Minecraft.getMinecraft().getRenderManager();
 		RenderGlobal.drawSelectionBoundingBox(
 			new AxisAlignedBB(
@@ -145,7 +180,7 @@ public class RenderUtils {
 		GL11.glPopMatrix();
 	}
 	
-	public static void drawTracerLine(Entity entity, double r, double g, double b, double t) {
+	public static void drawTracerLine(Entity entity, double r, double g, double b, double a, double t) {
         double X = entity.posX;
         double Y = entity.posY;
         double Z = entity.posZ;
@@ -167,7 +202,7 @@ public class RenderUtils {
 		GL11.glDepthMask(false);
 		Vec3 eyes=ActiveRenderInfo.getPosition();
         //GL11.glBegin(GL11.GL_LINES);
-        GL11.glColor4d(r,g,b,1F);
+        GL11.glColor4d(r,g,b,a);
         GL11.glBegin(GL11.GL_LINES);
         
         GL11.glVertex3d(eyes.xCoord, eyes.yCoord, eyes.zCoord);

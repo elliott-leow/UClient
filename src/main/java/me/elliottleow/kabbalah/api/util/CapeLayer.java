@@ -1,5 +1,10 @@
 package me.elliottleow.kabbalah.api.util;
 
+import java.util.UUID;
+
+import me.elliottleow.kabbalah.Kabbalah;
+import me.elliottleow.kabbalah.Reference;
+import me.elliottleow.kabbalah.module.modules.hud.Cape;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,11 +14,6 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.entity.player.EnumPlayerModelParts;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-
-import java.util.UUID;
-
-import me.elliottleow.kabbalah.Reference;
-import me.elliottleow.kabbalah.module.modules.player.Cape;
 
 public class CapeLayer implements LayerRenderer<AbstractClientPlayer> {
 
@@ -25,6 +25,7 @@ public class CapeLayer implements LayerRenderer<AbstractClientPlayer> {
 
     @Override
     public void doRenderLayer(AbstractClientPlayer entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        if (!Kabbalah.moduleManager.getModule("Cape").isToggled()) return;
         final UUID playerUUID = Minecraft.getMinecraft().getSession().getProfile().getId();
         if (!entity.getPersistentID().equals(playerUUID)) return;
         if (!entity.isInvisible() && entity.isWearing(EnumPlayerModelParts.CAPE)) {
@@ -36,7 +37,7 @@ public class CapeLayer implements LayerRenderer<AbstractClientPlayer> {
             }
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             try {
-                this.playerRenderer.bindTexture(CapeDownloader.DOWNLOADER.getCachedTexture());
+                this.playerRenderer.bindTexture(getCachedTexture());
             } catch (NullPointerException ignored) {
             }
             GlStateManager.pushMatrix();
@@ -64,8 +65,7 @@ public class CapeLayer implements LayerRenderer<AbstractClientPlayer> {
             GlStateManager.rotate(5.0F + f2 / 2.0F + f1, 1.0F, 0.0F, 0.0F);
             GlStateManager.rotate(f3 / 2.0F, 0.0F, 0.0F, 1.0F);
             GlStateManager.rotate(-f3 / 2.0F, 0.0F, 1.0F, 0.0F);
-            GlStateManager.rotate(0.0F, 0.0F, 1.0F, 0.0F);
-            //GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
+            GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
             this.playerRenderer.getMainModel().renderCape(0.0625F);
             GlStateManager.popMatrix();
         }
@@ -76,25 +76,19 @@ public class CapeLayer implements LayerRenderer<AbstractClientPlayer> {
         return false;
     }
     
-    public static class CapeDownloader {
+    private ResourceLocation cachedTexture = getCapeTexture();
 
-        public static final CapeDownloader DOWNLOADER = new CapeDownloader();
+    private ResourceLocation getCapeTexture() {
+        ResourceLocation location = null;
+        location = Minecraft.getMinecraft().getTextureManager().getDynamicTextureLocation(Reference.MOD_ID, new DynamicTexture(Cape.getImageFromURL(Cape.capeurl)));
+        return location;
+    }
 
-        private ResourceLocation cachedTexture = getCapeTexture();
+    ResourceLocation getCachedTexture() {
+        return cachedTexture;
+    }
 
-        private ResourceLocation getCapeTexture() {
-            ResourceLocation location = null;
-            location = Minecraft.getMinecraft().getTextureManager().getDynamicTextureLocation(Reference.MOD_ID, new DynamicTexture(RenderUtils.getImageFromURL(Cape.theurl)));
-            return location;
-        }
-
-        ResourceLocation getCachedTexture() {
-            return cachedTexture;
-        }
-
-        public void updateCachedTexture() {
-            cachedTexture = getCapeTexture();
-        }
-
+    public void updateCachedTexture() {
+        cachedTexture = getCapeTexture();
     }
 }

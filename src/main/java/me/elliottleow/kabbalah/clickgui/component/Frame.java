@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import org.lwjgl.opengl.GL11;
 
-//import me.elliottleow.kabbalah.Kabbalah;
-import me.elliottleow.kabbalah.Reference;
 import me.elliottleow.kabbalah.clickgui.component.components.Button;
 import me.elliottleow.kabbalah.module.Category;
 import me.elliottleow.kabbalah.module.Module;
@@ -85,33 +83,33 @@ public class Frame {
 	public void renderFrame(FontRenderer fontRenderer) {
 		Gui.drawRect(this.x, this.y, this.x + this.width, this.y + this.barHeight, 0xFF2C2F33);
 		GL11.glPushMatrix();
-GL11.glScalef(0.5f,0.5f, 0.5f);
+		GL11.glScalef(0.5f,0.5f, 0.5f);
 
 		fontRenderer.drawStringWithShadow(this.open ? "-" : "+", (this.x + this.width - 10) * 2 + 5, (this.y + 2.5f) * 2 + 5, -1);
 		
-		if(this.category.name().equalsIgnoreCase("player")) {
-			ResourceLocation r = new ResourceLocation(Reference.MOD_ID, "textures/player.png");
+		if(this.category.name().equalsIgnoreCase("combat")) {
+			ResourceLocation r = new ResourceLocation("kabbalah", "textures/combat.png");
 			Minecraft.getMinecraft().renderEngine.bindTexture(r);
 			Gui.drawScaledCustomSizeModalRect((this.x + 2) * 2 + 5, (int) ((this.y + 2.5f) * 2 -3), 0, 0, 111, 37, 111, 37, 111, 37);
 			//fontRenderer.drawStringWithShadow(this.category.name(), (this.x + 2) * 2 + 5, (this.y + 2.5f) * 2 + 5, 0xFFFFFFFF);
 			fontRenderer.drawStringWithShadow(this.open ? "-" : "+", (this.x + this.width - 10) * 2 + 5, (this.y + 2.5f) * 2 + 5, -1);
 		}
-		else if(this.category.name().equalsIgnoreCase("defense")) {
-			ResourceLocation r = new ResourceLocation(Reference.MOD_ID, "textures/defense.png");
+		else if(this.category.name().equalsIgnoreCase("qol")) {
+			ResourceLocation r = new ResourceLocation("kabbalah", "textures/qol.png");
 			Minecraft.getMinecraft().renderEngine.bindTexture(r);
 			Gui.drawScaledCustomSizeModalRect((this.x + 2) * 2 + 5, (int) ((this.y + 2.5f) * 2 -3), 0, 0, 111, 37, 111, 37, 111, 37);
 			//fontRenderer.drawStringWithShadow(this.category.name(), (this.x + 2) * 2 + 5, (this.y + 2.5f) * 2 + 5, 0xFFFFFFFF);
 			fontRenderer.drawStringWithShadow(this.open ? "-" : "+", (this.x + this.width - 10) * 2 + 5, (this.y + 2.5f) * 2 + 5, -1);
 		} 
-		else if(this.category.name().equalsIgnoreCase("offense")) {
-			ResourceLocation r = new ResourceLocation(Reference.MOD_ID, "textures/offense.png");
+		else if(this.category.name().equalsIgnoreCase("hud")) {
+			ResourceLocation r = new ResourceLocation("kabbalah", "textures/hud.png");
 			Minecraft.getMinecraft().renderEngine.bindTexture(r);
 			Gui.drawScaledCustomSizeModalRect((this.x + 2) * 2 + 5, (int) ((this.y + 2.5f) * 2 -3), 0, 0, 111, 37, 111, 37, 111, 37);
 			//fontRenderer.drawStringWithShadow(this.category.name(), (this.x + 2) * 2 + 5, (this.y + 2.5f) * 2 + 5, 0xFFFFFFFF);
 			fontRenderer.drawStringWithShadow(this.open ? "-" : "+", (this.x + this.width - 10) * 2 + 5, (this.y + 2.5f) * 2 + 5, -1);
 		}
-		else if(this.category.name().equalsIgnoreCase("client")) {
-			ResourceLocation r = new ResourceLocation(Reference.MOD_ID, "textures/client.png");
+		else if(this.category.name().equalsIgnoreCase("visual")) {
+			ResourceLocation r = new ResourceLocation("kabbalah", "textures/visual.png");
 			Minecraft.getMinecraft().renderEngine.bindTexture(r);
 			Gui.drawScaledCustomSizeModalRect((this.x + 2) * 2 + 5, (int) ((this.y + 2.5f) * 2 -3), 0, 0, 111, 37, 111, 37, 111, 37);
 			//fontRenderer.drawStringWithShadow(this.category.name(), (this.x + 2) * 2 + 5, (this.y + 2.5f) * 2 + 5, 0xFFFFFFFF);

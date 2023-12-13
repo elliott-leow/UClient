@@ -38,7 +38,7 @@ private ArrayList<Setting> settings;
 				return set;
 			}
 		}
-		System.err.println("[Kabbalah] Error Setting NOT found: '" + name +"'!");
+		System.err.println("[Kabbalah Client] Error Setting NOT found: '" + name +"'!");
 		return null;
 	}
 }

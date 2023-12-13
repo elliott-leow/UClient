@@ -14,13 +14,16 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 /*
 // for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
 plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.0"
+version = "1.10.001"
 group= "me.elliottleow.kabbalah" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "kabbalah"
 
@@ -38,7 +41,6 @@ minecraft {
 }
 
 dependencies {
-    //compile files('libs/JDA.jar')
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"

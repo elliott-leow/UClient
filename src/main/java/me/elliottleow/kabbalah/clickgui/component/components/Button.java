@@ -13,7 +13,6 @@ import me.elliottleow.kabbalah.clickgui.component.components.sub.Checkbox;
 import me.elliottleow.kabbalah.clickgui.component.components.sub.Keybind;
 import me.elliottleow.kabbalah.clickgui.component.components.sub.ModeButton;
 import me.elliottleow.kabbalah.clickgui.component.components.sub.Slider;
-import me.elliottleow.kabbalah.clickgui.component.components.sub.VisibleButton;
 import me.elliottleow.kabbalah.module.Module;
 import me.elliottleow.kabbalah.settings.Setting;
 import net.minecraft.client.Minecraft;
@@ -54,7 +53,7 @@ public class Button extends Component{
 			}
 		}
 		this.subcomponents.add(new Keybind(this, opY));
-		this.subcomponents.add(new VisibleButton(this, mod, opY));
+		//this.subcomponents.add(new VisibleButton(this, mod, opY));
 	}
 	
 	@Override

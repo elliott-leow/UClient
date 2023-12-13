@@ -11,6 +11,7 @@ import me.elliottleow.kabbalah.clickgui.component.Component;
 import me.elliottleow.kabbalah.clickgui.component.Frame;
 import me.elliottleow.kabbalah.module.Category;
 import me.elliottleow.kabbalah.module.Module;
+import me.elliottleow.kabbalah.module.ModuleManager;
 import me.elliottleow.kabbalah.ui.Hud.ModuleComparator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -124,26 +125,22 @@ public class ClickGui extends GuiScreen implements Comparator<Module> {
 	
 	public void renderhud() {
 		
-		Collections.sort(Kabbalah.moduleManager.modules, new ModuleComparator());
+		Collections.sort(ModuleManager.modules, new ModuleComparator());
 		
 		ScaledResolution sr = new ScaledResolution(mc);
 		FontRenderer fr = mc.fontRendererObj;
-		
-		
-			fr.drawStringWithShadow("Kabbalah Client" + " v" + Reference.VERSION, 2, 1, 0x82F6FF);
-		
-	
-		
-			int y = 2;
-			final int[] counter = {1};
-			for(Module mod : Kabbalah.moduleManager.getModuleList()) {
-				if (!mod.getName().equalsIgnoreCase("") && mod.isToggled()) {
-					fr.drawStringWithShadow(mod.getName(), sr.getScaledWidth() -fr.getStringWidth(mod.getName()) - 2, y, 0x82F6FF);
-					y += fr.FONT_HEIGHT;
-					counter[0]++;
-				}
+
+		fr.drawStringWithShadow("Kabbalah Client" + " v" + Reference.VERSION, 2, 1, 0x82F6FF);
+
+		int y = 2;
+		final int[] counter = {1};
+		for(Module mod : Kabbalah.moduleManager.getModuleList()) {
+			if (!mod.getName().equalsIgnoreCase("") && mod.isToggled()) {
+				fr.drawStringWithShadow(mod.getName(), sr.getScaledWidth() -fr.getStringWidth(mod.getName()) - 2, y, 0x82F6FF);
+				y += fr.FONT_HEIGHT;
+				counter[0]++;
 			}
-		
+		}
 	}
 
 }

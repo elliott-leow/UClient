@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import me.elliottleow.kabbalah.Kabbalah;
 import me.elliottleow.kabbalah.module.Module;
+import me.elliottleow.kabbalah.module.ModuleManager;
 import me.elliottleow.kabbalah.settings.Setting;
 import net.minecraft.client.Minecraft;
 
@@ -17,7 +18,7 @@ public class ConfigLoad {
 	private File dir;
 	private File dataFile; 
 	public ConfigLoad() {
-		dir = new File(Minecraft.getMinecraft().mcDataDir, "kabbalah2");
+		dir = new File(Minecraft.getMinecraft().mcDataDir, "kabbalahx");
 		if(!dir.exists()) dir.mkdir();
 		
 		dataFile = new File(dir, "config.txt");
@@ -35,7 +36,7 @@ public class ConfigLoad {
 		
 		ArrayList<String> toSave = new ArrayList<String>();
 		
-		for (Module mod : Kabbalah.moduleManager.modules) {
+		for (Module mod : ModuleManager.modules) {
 			toSave.add("MOD:" + mod.getName() + ":" + mod.isToggled() + ":" + mod.getKey());
 		}
 		

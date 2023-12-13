@@ -1,6 +1,9 @@
 package me.elliottleow.kabbalah.module;
 
 import me.elliottleow.kabbalah.Kabbalah;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 
 public class Module {
@@ -8,7 +11,7 @@ public class Module {
 	private int key;
 	private Category category;
 	public boolean toggled;
-	public boolean visible = true;
+	//public boolean visible = true;
 	
 	public Module(String name, String description, Category category) {
 		super();
@@ -58,7 +61,7 @@ public class Module {
 	
 	public void toggle() {
 		this.toggled = !this.toggled;
-		
+		if (Kabbalah.settingsManager.getSettingByName(Kabbalah.moduleManager.getModule("Click GUI"), "Output").getValBoolean() && this.getName()!="Click GUI") Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_AQUA + "[Kabbalah Client]: " + this.getName() + " toggled"));
 		if(this.toggled) {
 			this.onEnable();
 		} else {

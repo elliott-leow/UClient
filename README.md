@@ -1,4 +1,4 @@
-# Kabbalah Client
+# UClient Client
 
 A utility client designed for optimizing the player experience on Hypixel's The Bridge minigame.
 
